@@ -1,11 +1,9 @@
-
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectTotalQuantity } from '../../redux/cartSlice';
 
 // --- Import React Icons ---
-import { FaShoppingCart, FaSearch, FaUser, FaRegBuilding, FaQuestionCircle } from 'react-icons/fa'; // Example icons
+import { FaShoppingCart, FaSearch, FaUser, FaRegBuilding, FaQuestionCircle } from 'react-icons/fa';
 
 const Header = () => {
   const totalQuantity = useSelector(selectTotalQuantity);
