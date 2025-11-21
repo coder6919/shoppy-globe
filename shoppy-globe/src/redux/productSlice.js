@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -35,7 +34,7 @@ const productSlice = createSlice({
 });
 
 // Selectors
-// 1. Reads the current search query (Fixes the SyntaxError in ProductList.jsx)
+// 1. Reads the current search query 
 export const selectSearchQuery = (state) => state.product.searchQuery;
 
 // 2. Implements the filtering logic (Used by ProductList to display search results)
