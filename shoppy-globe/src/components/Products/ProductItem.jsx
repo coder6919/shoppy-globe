@@ -1,6 +1,3 @@
-// src/components/Products/ProductItem.jsx (UPDATED for hover effects)
-
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { Link } from 'react-router-dom';
