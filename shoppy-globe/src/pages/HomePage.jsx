@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import FallbackLoader from '../components/Common/FallbackLoader'; 
 
 // Lazy Load the core component
