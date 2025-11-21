@@ -1,5 +1,7 @@
 🛍️ ShoppyGlobe E-commerce Application
 
+GitHub Link: [https://github.com/coder6919/shoppy-globe/tree/master/shoppy-globe]
+
 This project is a modern, fully responsive e-commerce application built with React and Redux Toolkit. It fulfills all the requirements set forth in the project brief, focusing on efficient state management, performance optimization, and robust routing.
 
 ✨ Core Features & Technical Stack
