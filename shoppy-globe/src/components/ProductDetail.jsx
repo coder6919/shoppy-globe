@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
@@ -9,14 +9,14 @@ const ProductDetail = () => {
   const { id } = useParams(); 
   const dispatch = useDispatch();
 
-  // Local component state to store the fetched product details (10 marks requirement)
+  // Local component state to store the fetched product details
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  const containerClass = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"; // Direct utility classes
+  const containerClass = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"; 
 
-  // Use useEffect to fetch data when the component mounts (Data Fetching: 40 marks total)
+  // Use useEffect to fetch data when the component mounts
   useEffect(() => {
     const fetchProductDetails = async () => {
       setLoading(true);
