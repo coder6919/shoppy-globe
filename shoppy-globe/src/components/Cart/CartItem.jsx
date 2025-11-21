@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { adjustQuantity, removeFromCart } from '../../redux/cartSlice';
 import { Link } from 'react-router-dom';
