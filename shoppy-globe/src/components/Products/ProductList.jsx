@@ -10,7 +10,7 @@ import {
 } from '../../redux/productSlice';
 
 const ProductList = () => {
-  // Use the custom hook to trigger the data fetch on mount (Data Fetching: 20 marks)
+  // Use the custom hook to trigger the data fetch on mount
   useProductFetcher(); 
 
   // Retrieve state using Redux selectors
@@ -21,7 +21,7 @@ const ProductList = () => {
   const dispatch = useDispatch();
 
   const handleSearchChange = (event) => {
-    // Implement a search feature to filter products (Redux Search: 20 marks)
+    // Implement a search feature to filter products
     dispatch(setSearchQuery(event.target.value));
   };
   
@@ -35,7 +35,7 @@ const ProductList = () => {
     </div>;
   }
 
-  // Error Handling Display (Error Handling: 10 marks)
+  // Error Handling Display
   if (loading === 'failed' && error) {
     return <div className={`${containerClass} text-center py-20 text-xl font-bold text-red-600`}>
       ❌ Error fetching products: {error}
