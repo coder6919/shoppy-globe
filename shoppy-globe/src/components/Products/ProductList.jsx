@@ -1,6 +1,3 @@
-// src/components/Products/ProductList.jsx
-
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ProductItem from './ProductItem';
 import useProductFetcher from '../../hooks/useProductFetcher';
