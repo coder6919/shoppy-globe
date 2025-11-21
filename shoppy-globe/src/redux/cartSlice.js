@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -72,7 +71,7 @@ const cartSlice = createSlice({
 
 // Selectors: These are the NAMED exports required by components like Header.jsx!
 export const selectCartItems = (state) => state.cart.items;
-export const selectTotalQuantity = (state) => state.cart.totalQuantity; // <-- The one Header.jsx needs
+export const selectTotalQuantity = (state) => state.cart.totalQuantity;
 export const selectTotalPrice = (state) => state.cart.totalPrice;
 
 export const { addToCart, removeFromCart, adjustQuantity, clearCart } = cartSlice.actions;
