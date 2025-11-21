@@ -3,13 +3,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import Header from './components/Common/Header';
 import FallbackLoader from './components/Common/FallbackLoader';
 import NotFound from './components/Common/NotFound';
-import Footer from './components/Common/Footer'; // Using the direct import for errorElement
+import Footer from './components/Common/Footer';
 
-// --- Lazy Loading Components (Performance Optimization: 20 marks) ---
+// --- Lazy Loading Components
 const HomePage = lazy(() => import('./pages/HomePage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage'));
