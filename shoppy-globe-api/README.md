@@ -1,5 +1,7 @@
 # ShoppyGlobe Backend API
 
+GitHub Link: [https://github.com/coder6919/shoppy-globe/tree/master/shoppy-globe-api]
+
 This is the Node.js & Express backend for the ShoppyGlobe E-commerce application. It handles user authentication, product management, and shopping cart operations using MongoDB.
 
 ## 🚀 Features
