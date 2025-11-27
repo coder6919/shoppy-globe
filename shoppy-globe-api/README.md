@@ -49,9 +49,14 @@ DELETE /api/cart/:id - Remove item from cart (use Product ID)
 ### ✅ Phase 2: Evidence Gathering (Screenshots)
 Screenshots for **MongoDB Integration** and **Testing**.
 
-[MongoDB Atlas Cart, here we can see the product added in our cart for the logged in user](screenshots/atlascart.png)
-[MongoDB Atlas Products, here we can see the products that are in our database](screenshots/atlasprod.png)
-[MongoDB Atlas User, here we can see the user loggend in](screenshots/atlasuser.png)
+MongoDB Atlas Cart, here we can see the product added in our cart for the logged in user
+[MongoDB Atlas Cart](screenshots/atlascart.png)
+
+MongoDB Atlas Products, here we can see the products that are in our database
+[MongoDB Atlas Products](screenshots/atlasprod.png)
+
+MongoDB Atlas User, here we can see the user loggend in
+[MongoDB Atlas User](screenshots/atlasuser.png)
 
 ### API Testing Evidence
 
