@@ -13,7 +13,7 @@ const cartSlice = createSlice({
     // Action: Add a new product or increment quantity
     addToCart: (state, action) => {
       const newItem = action.payload;
-      const existingItem = state.items.find(item => item.id === newItem.id);
+      const existingItem = state.items.find(item => item._id === newItem._id);
 
       if (existingItem) {
         existingItem.quantity++;
@@ -27,11 +27,11 @@ const cartSlice = createSlice({
     // Action: Remove a product entirely
     removeFromCart: (state, action) => {
       const id = action.payload;
-      const itemToRemove = state.items.find(item => item.id === id);
+      const itemToRemove = state.items.find(item => item._id === id);
 
       if (itemToRemove) {
         state.totalQuantity -= itemToRemove.quantity;
-        state.items = state.items.filter(item => item.id !== id);
+        state.items = state.items.filter(item => item._id !== id);
         cartSlice.caseReducers.updateTotals(state);
       }
     },
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
     // Action: Adjust quantity (increment or decrement, minimum quantity is 1)
     adjustQuantity: (state, action) => {
       const { id, adjustmentType } = action.payload;
-      const existingItem = state.items.find(item => item.id === id);
+      const existingItem = state.items.find(item => item._id === id);
 
       if (existingItem) {
         if (adjustmentType === 'increment') {

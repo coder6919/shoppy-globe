@@ -1,4 +1,3 @@
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,72 +13,53 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage'));
 const ProductDetail = lazy(() => import('./components/ProductDetail')); 
+const Login = lazy(() => import('./components/Auth/Login'));
+const Register = lazy(() => import('./components/Auth/Register'));
 
-// Define the router using createBrowserRouter
+// ✅ DEFINED: Layout Wrapper
+// This prevents repeating Header/Suspense/Footer for every route
+const Layout = ({ children }) => (
+  <>
+    <Header />
+    <Suspense fallback={<FallbackLoader />}>
+      {children}
+    </Suspense>
+    <Footer/>
+  </>
+);
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <>
-        <Header />
-        <Suspense fallback={<FallbackLoader />}>
-          <HomePage />
-        </Suspense>
-        <Footer/>
-      </>
-    ),
+    element: <Layout><HomePage /></Layout>,
     errorElement: <NotFound />, 
   },
   {
-    path: '/products', // Maps the "Shop" link to the Home Page
-    element: (
-      <>
-        <Header />
-        <Suspense fallback={<FallbackLoader />}>
-          <HomePage />
-        </Suspense>
-        <Footer/>
-      </>
-    ),
+    path: '/login',
+    element: <Layout><Login /></Layout>,
   },
   {
-    path: '/product/:id', // Dynamic route for product details
-    element: (
-      <>
-        <Header />
-        <Suspense fallback={<FallbackLoader />}>
-          <ProductDetail />
-        </Suspense>
-        <Footer/>
-      </>
-    ),
+    path: '/register',
+    element: <Layout><Register /></Layout>,
+  },
+  {
+    path: '/products',
+    element: <Layout><HomePage /></Layout>,
+  },
+  {
+    path: '/product/:id',
+    element: <Layout><ProductDetail /></Layout>,
   },
   {
     path: '/cart',
-    element: (
-      <>
-        <Header />
-        <Suspense fallback={<FallbackLoader />}>
-          <CartPage />
-        </Suspense>
-        <Footer/>
-      </>
-    ),
+    element: <Layout><CartPage /></Layout>,
   },
   {
     path: '/checkout',
-    element: (
-      <>
-        <Header />
-        <Suspense fallback={<FallbackLoader />}>
-          <CheckoutPage />
-        </Suspense>
-        <Footer/>
-      </>
-    ),
+    element: <Layout><CheckoutPage /></Layout>,
   },
   {
-    path: '*', // Catch-all for 404 routes not handled by errorElement
+    path: '*',
     element: (
         <Suspense fallback={<FallbackLoader />}>
             <NotFound />

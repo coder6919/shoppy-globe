@@ -7,19 +7,19 @@ const CartItem = ({ item }) => {
 
   const handleAdjustQuantity = (adjustmentType) => {
     // Event Handling: Adjust quantity using Redux (20 marks)
-    dispatch(adjustQuantity({ id: item.id, adjustmentType }));
+    dispatch(adjustQuantity({ id: item._id, adjustmentType }));
   };
 
   const handleRemove = () => {
     // Event Handling: Remove product using Redux (20 marks)
-    dispatch(removeFromCart(item.id));
+    dispatch(removeFromCart(item._id));
   };
 
   return (
     <div className="flex items-center bg-white p-4 border-b border-gray-200 last:border-b-0">
       
       {/* Image */}
-      <Link to={`/product/${item.id}`} className="w-20 h-20 flex-shrink-0 mr-4">
+      <Link to={`/product/${item._id}`} className="w-20 h-20 flex-shrink-0 mr-4">
         <img 
           src={item.thumbnail} 
           alt={item.title} 
@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
 
       {/* Details */}
       <div className="flex-grow">
-        <Link to={`/product/${item.id}`} className="text-base font-semibold text-gray-800 hover:text-indigo-600 line-clamp-1">
+        <Link to={`/product/${item._id}`} className="text-base font-semibold text-gray-800 hover:text-indigo-600 line-clamp-1">
           {item.title}
         </Link>
         <p className="text-sm text-gray-500">{item.brand}</p>

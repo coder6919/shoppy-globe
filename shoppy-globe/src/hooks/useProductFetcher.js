@@ -17,7 +17,9 @@ const useProductFetcher = () => {
   const dispatch = useDispatch();
   const loadingStatus = useSelector(selectLoadingStatus);
 
-  const BASE_URL = 'https://dummyjson.com/products';
+  // const BASE_URL = 'https://dummyjson.com/products';
+  // Add your local backend URL
+  const BASE_URL = 'http://localhost:8000/api/products';
 
   const fetchData = useCallback(async () => {
     // Optimization: Prevents refetching if data is already loaded successfully

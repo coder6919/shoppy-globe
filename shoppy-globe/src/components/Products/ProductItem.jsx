@@ -1,22 +1,33 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
-import { Link } from 'react-router-dom';
+import { selectIsAuthenticated } from '../../redux/authSlice'; // Import auth selector
+import { Link, useNavigate } from 'react-router-dom';
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isAuthenticated = useSelector(selectIsAuthenticated); // Check login status
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault(); // Prevent link click if button is inside link
+    e.stopPropagation();
+
+    if (!isAuthenticated) {
+      // Redirect to login if not authenticated
+      alert("Please login to add items to your cart!");
+      navigate('/login');
+      return;
+    }
+
     dispatch(addToCart(product));
   };
 
   return (
-    // Card container: Add 'group' class for hover effects on children
     <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm 
                     hover:shadow-md transition duration-300 flex flex-col cursor-pointer
-                    group hover:bg-indigo-600 hover:border-indigo-600"> {/* Hover background and border */}
+                    group hover:bg-indigo-600 hover:border-indigo-600"> 
       
-      {/* Link to Product Detail Page */}
-      <Link to={`/product/${product.id}`} className="block">
+      <Link to={`/product/${product._id}`} className="block">
         <img 
           src={product.thumbnail} 
           alt={product.title} 
@@ -38,11 +49,10 @@ const ProductItem = ({ product }) => {
             ₹{product.price}
           </p>
           
-          {/* Add to Cart Button: Adjust text color on hover, background remains. */}
           <button 
             className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-md 
              transition duration-200 text-sm shadow-md border-2 border-transparent group-hover:bg-white group-hover:text-indigo-600 group-hover:border-indigo-600
-             hover:text-indigo-800 hover:shadow-lg" // Button changes to white bg, indigo text on card hover
+             hover:text-indigo-800 hover:shadow-lg"
             onClick={handleAddToCart}
           >
             ➕ ADD TO BAG
